@@ -1,30 +1,28 @@
 <?php
     session_name('admin');
     session_start();
-?>
-<html>
-    <head>
-        <title>Session 2</title>
-    </head>
-    <body>
-        <?php
-        if (!empty($_SESSION['name'])) {
-            echo "Hi, {$_SESSION['name']} from
-                {$_SESSION['school']}. <br />
-                See, I remembered your name!<br />";
-            unset($_SESSION['name']);
 
-            if (isset($_COOKIE[session_name()])) {
-                $params = session_get_cookie_params();
-                setcookie(session_name(), '', 1, $params['path'], 
-                    $params['domain'], $params['secure'], $params['httponly']);
-            }
-        } else {
-            ?>
-                <p>Sorry, I don't know you</p>
-        <?php
-        }
-        ?>
-        <a href='session01.php'>Page 1</a>
-    </body>
-</html>
+    /*if the user tries to access this file without logging in, re-direct them back to
+    the login.php page which should display a message saying “Invalid Login” –
+    use the session variable to check. */
+    if ($_SESSION['loggedIn'] !== true) {
+        /* if they are redirected to login.php from admin.php, 
+        it should display a different message: “You need to log in”. */
+        header("Location: login.php?alert=invalidLogIn");
+        exit;
+    }
+
+    //if the user is logged in
+    if (!empty($_COOKIE['loggedIn'])) {
+        //provide them with the value of the “loggedIn”
+        echo "<h1>You logged in " . $_COOKIE['loggedIn'] . "</h1>";
+
+        //unset the session variable and destroy the session
+        session_unset();
+        session_destroy();
+        
+        //unset both cookies (session and ‘loggedIn’)
+        setcookie('loggedIn', "", time() - 3600, "/");
+        setcookie(session_name(), "", time() - 3600, "/");
+    }
+?>
