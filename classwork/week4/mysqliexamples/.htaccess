@@ -1,0 +1,4 @@
+SetEnv DB ec7233 
+SetEnv DB_PASSWORD Resound3!terrorist
+SetEnv DB_SERVER localhost
+SetEnv DB_USER ec7233
