@@ -14,6 +14,10 @@ class DB {
         }
     }//construct
 
+    public function getConn() {
+        return $this->dbh;
+    }//getConn
+
     function getPerson($id) {
         $data = [];
         try {
@@ -76,14 +80,31 @@ class DB {
 
     function getAllObjects() {
         try {
-            include "Person.class.php";
-
             $stmt = $this->dbh->prepare("SELECT * FROM people");
             $stmt->execute();
             $stmt->setFetchMode(PDO::FETCH_CLASS, "Person");
             while ($person = $stmt->fetch()) {
                 $data[] = $person;
             }
+            if (count($data) > 0) {    
+                $bigString = "<table border='1'>\n
+                    <tr><th>ID</th><th>First</th><th>Last</th><th>Nick</th></tr>\n";
+                foreach ($data as $row) {
+                    $bigString .= "<tr>
+                    <td><a href='lab4_4.php?id=".$row['PersonID']."'>".$row['PersonID']."</a></td>
+                    <td>{$row['LastName']}</td>
+                    <td>{$row['FirstName']}</td>
+                    <td>{$row['NickName']}</td>
+                    </tr>\n";
+                }//foreach
+    
+                $bigString .= "</table>\n";
+    
+            } else {
+                $bigString = "<h2>No People Exist</h2>";
+            }
+    
+            return $bigString;
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
