@@ -6,82 +6,87 @@
 
     require_once '../model/BugModel.php';
 
-    //Function that gives description of the bug
-    function getDescription($bugId){
-        //Returns description of the bug
-        //EX: "$bugId: Causes the program to crash."
-    }//getDescription
+    class BugController {
+        private $model;
 
-    //Function that gives summary of the bug
-    function getSummary($bugId){
-        //Returns where it is located and what it does
-        //EX: "$bugId: Located in the login page. Supposed to display 'Welcome Home'"
-    }//getSummary
+        public function __construct(){
+            $this->model = new BugModel();
+        }
 
-    //Function that identifies who found the bug
-    function getOwner($bugId){
-        //Returns the name of the person who found the bug
-        //EX: "$bugId: Found by John Doe"
-    }//getOwner
+        public function getDescription($id){
+            return $this->model->getDescription($id);
+        }
 
-    //Function that displays the date the bug was found
-    function getDate($bugId){
-        //Returns the date the bug was found
-        //EX: "$bugId: Found on 02/28/2025"
-    }//getDate
+        public function getSummary($id){
+            return $this->model->getSummary($id);
+        }
 
-    //Function that displays the project related to the bug
-    function getPriority($bugId){
-        //Returns the priority of the bug
-        // 1. Low | 2. Medium | 3. High | 4. Urgent
-        //EX: "$bugId: Priority is High (3)"
-    }//getPriority
+        public function getOwner($id){
+            return $this->model->getOwner($id);
+        }
 
-    //Function that displays target resolution date
-    function getTargetDate($bugId){
-        //Returns the target resolution date
-        //EX: "$bugId: Target resolution date is 03/15/2025"
-    }//getTargetDate
-    
-    //Function that displays actual resolution date
-    function getResolutionDate($bugId){
-        //Returns the actual resolution date
-        //EX: "$bugId: Resolved on 03/10/2025"
-    }//getResolutionDate
+        public function getDateRaised($id){
+            return $this->model->getDateRaised($id);
+        }
 
-    //Function that gets fix resolution summary 
-    function getFixDescription($bugId){
-        //Returns the fix resolution summary
-        //EX: "$bugId: Missing semi-colon in line 25"
-    }//getFixDescription
+        public function getAssignedTo($id){
+            return $this->model->getAssignedTo($id);
+        }
 
-    //Function that gets ALL bugs based on inputted projectId
-    function getAllBugsByProject($projectId){
-        //Returns all bugs related to the project
-        //EX: "Project 1: Bug 1, Bug 2, Bug 3"
-    }//getAllBugsByProject
+        public function getStatus($id){
+            return $this->model->getStatus($id);
+        }
 
-    //Function that gets ALL bugs
-    function getAllOpenBugs(){
-        //Returns all open bugs that have not been resolved
-        //EX: "Bug 1, Bug 2, Bug 3"
-    }//getAllOpenBugs
+        public function getPriority($id){
+            return $this->model->getPriority($id);
+        }
 
-    //Function that gets OVERDUE bugs based on inputted projectId
-    function getOverdueBugsByProject($projectId){
-        //Returns all bugs that have passed the target resolution date
-        //EX: "Project 1: Bug 1, Bug 2, Bug 3"
-    }//getOverdueBugsByProject
+        public function getTargetDate($id){
+            return $this->model->getTargetDate($id);
+        }
 
-    //Function that gets ALL overdue bugs
-    function getAllOverdueBugs(){
-        //Returns all bugs that have passed the target resolution date
-        //EX: "Bug 1, Bug 2, Bug 3"
-    }//getAllOverdueBugs
+        public function getResolutionDate($id){
+            return $this->model->getResolutionDate($id);
+        }
 
-    //Function that gets ALL UNASSIGNED bugs
-    function getAllUnassignedBugs(){
-        //Returns all bugs that have not been assigned to a user
-        //EX: "Bug 1, Bug 2, Bug 3"
-    }//getUnassignedBugs
+        public function getFixDescription($id){
+            return $this->model->getFixDescription($id);
+        }
+
+        public function getAllBugsByProject(){
+            return $this->model->getAllBugsByProject();
+        }
+        
+        public function getAllOpenBugsByProject(){
+            return $this->model->getAllOpenBugsByProject();
+        }
+
+        public function getOverdueBugsByProject(){
+            return $this->model->getOverdueBugsByProject();
+        }
+
+        public function getAllOverdueBugs(){
+            return $this->model->getAllOverdueBugs();
+        }
+
+        public function getAllUnassignedBugs(){
+            return $this->model->getAllUnassignedBugs();
+        }
+
+        public function getAllBugs(){
+            return $this->model->getAllBugs();
+        }
+
+        public function getAllBugsByProjectUser($userId){
+            return $this->model->getAllBugsByProjectUser($userId);
+        }
+
+        public function getAllOpenBugsByProjectUser($userId){
+            return $this->model->getAllOpenBugsByProjectUser($userId);
+        }
+
+        public function getOverdueBugsByProjectUser($userId){
+            return $this->model->getOverdueBugsByProjectUser($userId);
+        }
+    }
 ?>

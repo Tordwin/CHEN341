@@ -1,0 +1,8 @@
+C:\Users\chene\Onedrive\documents\school\spring2025\chen341\classwork\week8\productService\obj\Debug\net9.0\ProductService.csproj.AssemblyReference.cache
+C:\Users\chene\Onedrive\documents\school\spring2025\chen341\classwork\week8\productService\obj\Debug\net9.0\ProductService.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\chene\Onedrive\documents\school\spring2025\chen341\classwork\week8\productService\obj\Debug\net9.0\ProductService.AssemblyInfoInputs.cache
+C:\Users\chene\Onedrive\documents\school\spring2025\chen341\classwork\week8\productService\obj\Debug\net9.0\ProductService.AssemblyInfo.cs
+C:\Users\chene\Onedrive\documents\school\spring2025\chen341\classwork\week8\productService\obj\Debug\net9.0\ProductService.csproj.CoreCompileInputs.cache
+C:\Users\chene\Onedrive\documents\school\spring2025\chen341\classwork\week8\productService\obj\Debug\net9.0\ProductService.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\chene\Onedrive\documents\school\spring2025\chen341\classwork\week8\productService\obj\Debug\net9.0\ProductService.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\chene\Onedrive\documents\school\spring2025\chen341\classwork\week8\productService\obj\Debug\net9.0\ProductService.sourcelink.json
