@@ -1,0 +1,35 @@
+services:
+  distro:
+    image: alpine
+    restart: always
+    container_name: Alpine_Distro
+
+  database:
+    image: postgres:latest
+    restart: always
+    environment:
+      - POSTGRES_DB="db"
+      - POSTGRES_HOST_AUTH_METHOD="TRUST"
+      - POSTGRES_PASSWORD="password"
+    container_name: postgres_db
+    volumes:
+      - data:/var/lib/postgressql
+    ports:
+      - "5432:5432"
+
+  web:
+    image: nginx:latest
+    container_name: nginx
+    volumes:
+      - ./mysite.template:/etc/nginx/conf.d/mysite.template
+    ports:
+      - "8080:80"
+    environment:
+      - NGINX_HOST=example.com
+      - NGINX_port=80
+    links:
+      - database:db
+      - distro
+volumes:
+  data:
+    external: true
