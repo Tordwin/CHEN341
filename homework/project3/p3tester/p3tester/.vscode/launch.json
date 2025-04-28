@@ -1,0 +1,30 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "P3Tester",
+      "request": "launch",
+      "mainClass": "com.server.tester.P3Tester",
+      "projectName": "p3tester"
+    },
+    {
+      "type": "java",
+      "name": "Current File",
+      "request": "launch",
+      "mainClass": "${file}"
+    },
+    {
+      "type": "java",
+      "name": "P3Tester",
+      "request": "launch",
+      "mainClass": "com.server.tester.P3Tester",
+      "projectName": "p3tester",
+      "_comments": "MAKE SURE YOU CHANGE THE FOLLOWING LINE TO INCLUDE YOUR COMPANY",
+      "args": "klo1769"
+    }
+  ]
+}

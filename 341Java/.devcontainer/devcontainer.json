@@ -1,0 +1,28 @@
+{
+  "name": "java",
+  "dockerComposeFile": ["./docker-compose.yml"],
+  "service": "java",
+  "remoteUser": "vscode",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "gabrielbb.vscode-lombok",
+        "vscjava.vscode-java-pack",
+        "vscjava.vscode-java-debug",
+        "vscjava.vscode-maven"
+      ],
+      "settings": {
+        "java.jdt.ls.java.home": "/usr/local/openjdk-21",
+        "maven.executable.path": "/usr/local/sdkman/candidates/maven/current/bin/mvn"
+      }
+    }
+  },
+  "mounts": [
+    "source=em-api-container-volume,target=/home/vscode/.vscode-server/extensions,type=volume",
+    "source=em-api-container-volume-insiders,target=/home/vscode/.vscode-server-insiders/extensions,type=volume",
+    "source=${localEnv:HOME}/.m2,target=/home/vscode/.m2,type=bind,consistency=cached",
+    "source=${localEnv:HOME}${localEnv:USERPROFILE},target=/external-folder,type=bind"
+  ],
+  "workspaceMount": "${localEnv:HOME}${localEnv:USERPROFILE},target=/external-folder,type=bind",
+  "workspaceFolder": "/external-folder"
+}
